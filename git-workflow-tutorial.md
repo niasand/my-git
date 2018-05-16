@@ -201,7 +201,7 @@ git branch -d issue-#001
 所以不要畏惧按自己需要对工作流的用法做取舍。不变的目标就是让`Git`为你所用。
 
 -----------------
-# 注意：
-## 1. 注意Master分支，需要由项目负责人来merge和发布
-## 2. 合并到develop需要发起merge request(github里面叫pull request)
-## 3. 拉release分支给测试，或者将release分支发起merge request给master分支，需要由项目经理发起
+### 注意：
+#### 1. 注意Master分支，需要由项目负责人来merge和发布
+#### 2. 合并到develop需要发起merge request(github里面叫pull request)
+#### 3. 拉release分支给测试，或者将release分支发起merge request给master分支，需要由项目经理发起

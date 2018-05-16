@@ -4,8 +4,7 @@
 简体中文：由 [oldratlee](https://github.com/oldratlee) 翻译在 `GitHub` 上 [`Git`工作流指南](https://github.com/oldratlee/translations/blob/master/git-workflows-and-tutorials/README.md)
 
 
-
-## 2.3 `Gitflow`工作流
+## `Gitflow`工作流
 
 `Gitflow`工作流通过为功能开发、发布准备和维护分配独立的分支，让发布迭代过程更流畅。严格的分支模型也为大型项目提供了一些非常必要的结构。
 
@@ -163,6 +162,10 @@ git branch -d release-0.1
 ```
 
 发布分支是作为功能开发（`develop`分支）和对外发布（`master`分支）间的缓冲。只要有合并到`master`分支，就应该打好`Tag`以方便跟踪。
+
+## 1. 注意Master分支，需要由项目负责人来merge和发布
+## 2. 合并到develop需要发起merge request(github里面叫pull request)
+## 3. 拉release分支给测试，或者将release分支发起merge request给master分支，需要由项目经理发起
 
 ```bash
 git tag -a 0.1 -m "Initial public release" master

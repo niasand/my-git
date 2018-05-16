@@ -8,7 +8,7 @@
 
 `Gitflow`工作流通过为功能开发、发布准备和维护分配独立的分支，让发布迭代过程更流畅。严格的分支模型也为大型项目提供了一些非常必要的结构。
 
-![Git Workflows: Gitflow Cycle](images/git-workflows-gitflow.png)
+![Git Workflows: Gitflow Cycle](http://jerry-yang.qiniudn.com/2018-05-16FvxZJIRtR309s5fJy9nmdMJrm0ho)
 
 这节介绍的[`Gitflow`工作流](http://nvie.com/posts/a-successful-git-branching-model/)借鉴自在[nvie](http://nvie.com/)的*Vincent Driessen*。
 
@@ -26,7 +26,7 @@
 相对于使用仅有的一个`master`分支，`Gitflow`工作流使用两个分支来记录项目的历史。`master`分支存储了正式发布的历史，而`develop`分支作为功能的集成分支。
 这样也方便`master`分支上的所有提交分配一个版本号。
 
-![](images/git-workflow-release-cycle-1historical.png)
+![git-workflow-release-cycle-1historical](http://jerry-yang.qiniudn.com/2018-05-16FmVgNMdd9_4OB1spUWgPGEgVbeMz)
 
 剩下要说明的问题围绕着这2个分支的区别展开。
 
@@ -36,13 +36,13 @@
 但功能分支不是从`master`分支上拉出新分支，而是使用`develop`分支作为父分支。当新功能完成时，[合并回`develop`分支]。
 新功能提交应该从不直接与`master`分支交互。
 
-![](images/git-workflow-release-cycle-2feature.png)
+![git-workflow-release-cycle-5createdev](http://jerry-yang.qiniudn.com/2018-05-16Fn1MgNkaeC31MNOIz6vYhrtVniF0)
 
 注意，从各种含义和目的上来看，功能分支加上`develop`分支就是功能分支工作流的用法。但`Gitflow`工作流没有在这里止步。
 
 ### 2.3.4 发布分支
 
-![](images/git-workflow-release-cycle-3release.png)
+![git-workflow-release-cycle-3release](http://jerry-yang.qiniudn.com/2018-05-16FseF1U09PV2edwQeHF6dSa8OIWCL)
 
 一旦`develop`分支上有了做一次发布（或者说快到了既定的发布日）的足够功能，就从`develop`分支上`checkout`一个发布分支。
 新建的分支用于开始发布循环，所以从这个时间点开始之后新的功能不能再加到这个分支上——
@@ -63,7 +63,7 @@
 
 ### 2.3.5 维护分支
 
-![](images/git-workflow-release-cycle-4maintenance.png)
+![git-workflow-release-cycle-4maintenance](http://jerry-yang.qiniudn.com/2018-05-16FmHYNO3eyN5MjQqY5rTRjxuAwUD4)
 
 维护分支或说是热修复（`hotfix`）分支用于给产品发布版本（`production releases`）快速生成补丁，这是唯一可以直接从`master`分支`fork`出来的分支。
 修复完成，修改应该马上合并回`master`分支和`develop`分支（当前的发布分支），`master`分支应该用新的版本号打好`Tag`。
@@ -76,7 +76,7 @@
 
 #### 创建开发分支
 
-![](images/git-workflow-release-cycle-5createdev.png)
+![git-workflow-release-cycle-5createdev](http://jerry-yang.qiniudn.com/2018-05-16Fi0wRP2P6uISBPDU-M1sIk-x2tU5)
 
 第一步为`master`分支配套一个`develop`分支。简单来做可以本地创建一个空的`develop`分支，`push`到服务器上：
 
@@ -96,7 +96,7 @@ git checkout -b develop origin/develop
 
 #### 小红和小明开始开发新功能
 
-![](images/git-workflow-release-cycle-6maryjohnbeginnew.png)
+![git-workflow-release-cycle-6maryjohnbeginnew](http://jerry-yang.qiniudn.com/2018-05-16FjlBTHWc9NPqDqS34JSxjrb3AMEC)
 
 这个示例中，小红和小明开始各自的功能开发。他们需要为各自的功能创建相应的分支。新分支不是基于`master`分支，而是应该基于`develop`分支：
 
@@ -113,7 +113,7 @@ git commit
 
 #### 小红完成功能开发
 
-![](images/git-workflow-release-cycle-7maryfinishes.png)
+![git-workflow-release-cycle-7maryfinishes](http://jerry-yang.qiniudn.com/2018-05-16FoJ6tYb_9Nx5UkGhI9aH75g8XVuh)
 
 添加了提交后，小红觉得她的功能OK了。如果团队使用`Pull Requests`，这时候可以发起一个用于合并到`develop`分支。
 否则她可以直接合并到她本地的`develop`分支后`push`到中央仓库：
@@ -131,7 +131,7 @@ git branch -d some-feature
 
 #### 小红开始准备发布
 
-![](images/git-workflow-release-cycle-8maryprepsrelease.png)
+![git-workflow-release-cycle-8maryprepsrelease](http://jerry-yang.qiniudn.com/2018-05-16Fqk_gelaaB2DFVs8vYyMQl9Pg_Wk)
 
 这个时候小明正在实现他的功能，小红开始准备她的第一个项目正式发布。
 像功能开发一样，她用一个新的分支来做发布准备。这一步也确定了发布的版本号：
@@ -174,7 +174,7 @@ git push --tags
 
 #### 最终用户发现`Bug`
 
-![](images/git-workflow-gitflow-enduserbug.png)
+![git-workflow-gitflow-enduserbug](http://jerry-yang.qiniudn.com/2018-05-16FmpfiF2x9v4cLyOED9LGeSxtOS6a)
 
 对外版本发布后，小红小明一起开发下一版本的新功能，直到有最终用户开了一个`Ticket`抱怨当前版本的一个`Bug`。
 为了处理`Bug`，小红（或小明）从`master`分支上拉出了一个维护分支，提交修改以解决问题，然后直接合并回`master`分支：

@@ -1,5 +1,4 @@
 
-我个人很感激这篇文章，所以进行了整理，希望能帮到更多的人。整篇文章由 [xirong](https://github.com/xirong) 整理自 [oldratlee](https://github.com/oldratlee) 的`GitHub`，方便统一的学习回顾，在此感谢下面两位的贡献。
 
 原文链接：[Git Workflows and Tutorials](https://www.atlassian.com/git/workflows)     
 简体中文：由 [oldratlee](https://github.com/oldratlee) 翻译在 `GitHub` 上 [`Git`工作流指南](https://github.com/oldratlee/translations/blob/master/git-workflows-and-tutorials/README.md)
@@ -14,7 +13,7 @@
 
 这节介绍的[`Gitflow`工作流](http://nvie.com/posts/a-successful-git-branching-model/)借鉴自在[nvie](http://nvie.com/)的*Vincent Driessen*。
 
-`Gitflow`工作流定义了一个围绕项目发布的严格分支模型。虽然比[功能分支工作流](workflow-feature-branch.md)复杂几分，但提供了用于一个健壮的用于管理大型项目的框架。
+`Gitflow`工作流定义了一个围绕项目发布的严格分支模型。虽然比[功能分支工作流]复杂几分，但提供了用于一个健壮的用于管理大型项目的框架。
 
 `Gitflow`工作流没有用超出功能分支工作流的概念和命令，而是为不同的分支分配一个明确的角色，并定义分支之间如何和什么时候进行交互。
 除了使用功能分支，在做准备、维护和记录发布时，也定义了各自的分支。
@@ -129,7 +128,7 @@ git branch -d some-feature
 ```
 
 第一条命令在合并功能前确保`develop`分支是最新的。注意，功能决不应该直接合并到`master`分支。
-冲突解决方法和[集中式工作流](workflow-centralized.md)一样。
+
 
 #### 小红开始准备发布
 

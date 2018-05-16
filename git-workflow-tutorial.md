@@ -34,8 +34,8 @@
 
 ### 2.3.3 功能分支
 
-每个新功能位于一个自己的分支，这样可以[`push`到中央仓库以备份和协作](https://www.atlassian.com/git/tutorial/remote-repositories#!push)。
-但功能分支不是从`master`分支上拉出新分支，而是使用`develop`分支作为父分支。当新功能完成时，[合并回`develop`分支](https://www.atlassian.com/git/tutorial/git-branches#!merge)。
+每个新功能位于一个自己的分支，这样可以[`push`到中央仓库以备份和协作]。
+但功能分支不是从`master`分支上拉出新分支，而是使用`develop`分支作为父分支。当新功能完成时，[合并回`develop`分支]。
 新功能提交应该从不直接与`master`分支交互。
 
 ![](images/git-workflow-release-cycle-2feature.png)
@@ -80,14 +80,14 @@
 
 ![](images/git-workflow-release-cycle-5createdev.png)
 
-第一步为`master`分支配套一个`develop`分支。简单来做可以[本地创建一个空的`develop`分支](https://www.atlassian.com/git/tutorial/git-branches#!branch)，`push`到服务器上：
+第一步为`master`分支配套一个`develop`分支。简单来做可以本地创建一个空的`develop`分支，`push`到服务器上：
 
 ```bash
 git branch develop
 git push -u origin develop
 ```
 
-以后这个分支将会包含了项目的全部历史，而`master`分支将只包含了部分历史。其它开发者这时应该[克隆中央仓库](https://www.atlassian.com/git/tutorial/git-basics#!clone)，建好`develop`分支的跟踪分支：
+以后这个分支将会包含了项目的全部历史，而`master`分支将只包含了部分历史。其它开发者这时应该克隆中央仓库，建好`develop`分支的跟踪分支：
 
 ```bash
 git clone ssh://user@host/path/to/repo.git
@@ -100,7 +100,7 @@ git checkout -b develop origin/develop
 
 ![](images/git-workflow-release-cycle-6maryjohnbeginnew.png)
 
-这个示例中，小红和小明开始各自的功能开发。他们需要为各自的功能创建相应的分支。新分支不是基于`master`分支，而是应该[基于`develop`分支](https://www.atlassian.com/git/tutorial/git-branches#!checkout)：
+这个示例中，小红和小明开始各自的功能开发。他们需要为各自的功能创建相应的分支。新分支不是基于`master`分支，而是应该基于`develop`分支：
 
 ```bash
 git checkout -b some-feature develop
@@ -188,7 +188,7 @@ git merge issue-#001
 git push
 ```
 
-就像发布分支，维护分支中新加这些重要修改需要包含到`develop`分支中，所以小红要执行一个合并操作。然后就可以安全地[删除这个分支](https://www.atlassian.com/git/tutorial/git-branches#!branch)了：
+就像发布分支，维护分支中新加这些重要修改需要包含到`develop`分支中，所以小红要执行一个合并操作。然后就可以安全地删除这个分支了：
 
 ```bash
 git checkout develop
@@ -197,8 +197,6 @@ git push
 git branch -d issue-#001
 ```
 
-到了这里，但愿你对[集中式工作流](workflow-centralized.md)、[功能分支工作流](workflow-feature-branch.md)和`Gitflow`工作流已经感觉很舒适了。
-你应该也牢固的掌握了本地仓库的潜能，`push`/`pull`模式和`Git`健壮的分支和合并模型。
 
 记住，这里演示的工作流只是可能用法的例子，而不是在实际工作中使用`Git`不可违逆的条例。
 所以不要畏惧按自己需要对工作流的用法做取舍。不变的目标就是让`Git`为你所用。
